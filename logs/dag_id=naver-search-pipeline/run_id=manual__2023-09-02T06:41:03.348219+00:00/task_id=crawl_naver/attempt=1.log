@@ -1,0 +1,77 @@
+[2023-09-02T15:41:09.705+0900] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: naver-search-pipeline.crawl_naver manual__2023-09-02T06:41:03.348219+00:00 [queued]>
+[2023-09-02T15:41:09.708+0900] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: naver-search-pipeline.crawl_naver manual__2023-09-02T06:41:03.348219+00:00 [queued]>
+[2023-09-02T15:41:09.708+0900] {taskinstance.py:1361} INFO - Starting attempt 1 of 1
+[2023-09-02T15:41:09.714+0900] {taskinstance.py:1382} INFO - Executing <Task(SimpleHttpOperator): crawl_naver> on 2023-09-02 06:41:03.348219+00:00
+[2023-09-02T15:41:09.716+0900] {standard_task_runner.py:57} INFO - Started process 51643 to run task
+[2023-09-02T15:41:09.720+0900] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'naver-search-pipeline', 'crawl_naver', 'manual__2023-09-02T06:41:03.348219+00:00', '--job-id', '30', '--raw', '--subdir', 'DAGS_FOLDER/naver_search_pipeline.py', '--cfg-path', '/tmp/tmp3cukdz7x']
+[2023-09-02T15:41:09.721+0900] {standard_task_runner.py:85} INFO - Job 30: Subtask crawl_naver
+[2023-09-02T15:41:09.743+0900] {task_command.py:415} INFO - Running <TaskInstance: naver-search-pipeline.crawl_naver manual__2023-09-02T06:41:03.348219+00:00 [running]> on host e2ca8eff8ec8
+[2023-09-02T15:41:09.773+0900] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='naver-search-pipeline' AIRFLOW_CTX_TASK_ID='crawl_naver' AIRFLOW_CTX_EXECUTION_DATE='2023-09-02T06:41:03.348219+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-09-02T06:41:03.348219+00:00'
+[2023-09-02T15:41:09.773+0900] {http.py:143} INFO - Calling HTTP method
+[2023-09-02T15:41:09.776+0900] {base.py:73} INFO - Using connection ID 'naver_search_api' for task execution.
+[2023-09-02T15:41:09.880+0900] {http.py:153} INFO - {
+	"lastBuildDate":"Sat, 02 Sep 2023 15:41:09 +0900",
+	"total":5,
+	"start":1,
+	"display":5,
+	"items":[
+		{
+			"title":"제주약수터",
+			"link":"https:\/\/smartstore.naver.com\/jeju_beer_fountain\/products\/8347481791",
+			"category":"술집>맥주,호프",
+			"description":"",
+			"telephone":"",
+			"address":"제주특별자치도 서귀포시 서귀동 294-20 1층",
+			"roadAddress":"제주특별자치도 서귀포시 중앙로 35 1층",
+			"mapx":"1265616683",
+			"mapy":"332477327"
+		},
+		{
+			"title":"버드나무 브루어리",
+			"link":"http:\/\/www.facebook.com\/Budnamu\/",
+			"category":"술집>맥주,호프",
+			"description":"",
+			"telephone":"",
+			"address":"강원특별자치도 강릉시 홍제동 93-8",
+			"roadAddress":"강원특별자치도 강릉시 경강로 1961",
+			"mapx":"1288844475",
+			"mapy":"377482241"
+		},
+		{
+			"title":"제주약수터 올레시장점",
+			"link":"https:\/\/jejubeerfountain.modoo.at\/",
+			"category":"술집>맥주,호프",
+			"description":"",
+			"telephone":"",
+			"address":"제주특별자치도 서귀포시 서귀동 292-1",
+			"roadAddress":"제주특별자치도 서귀포시 중앙로48번길 10",
+			"mapx":"1265627499",
+			"mapy":"332490203"
+		},
+		{
+			"title":"발리 슈퍼스토어",
+			"link":"http:\/\/www.instagram\/balisuperstore",
+			"category":"술집>요리주점",
+			"description":"",
+			"telephone":"",
+			"address":"서울특별시 마포구 서교동 396-32 2층",
+			"roadAddress":"서울특별시 마포구 양화로6길 45 2층",
+			"mapx":"1269167651",
+			"mapy":"375489252"
+		},
+		{
+			"title":"올드문래",
+			"link":"http:\/\/oldmullae.itrocks.kr\/",
+			"category":"술집>맥주,호프",
+			"description":"",
+			"telephone":"",
+			"address":"서울특별시 영등포구 문래동2가 14-28",
+			"roadAddress":"서울특별시 영등포구 도림로 433-6",
+			"mapx":"1268942772",
+			"mapy":"375139396"
+		}
+	]
+}
+[2023-09-02T15:41:09.893+0900] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=naver-search-pipeline, task_id=crawl_naver, execution_date=20230902T064103, start_date=20230902T064109, end_date=20230902T064109
+[2023-09-02T15:41:09.941+0900] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2023-09-02T15:41:09.953+0900] {taskinstance.py:2784} INFO - 1 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,42 @@
+[2023-09-02T13:49:19.268+0900] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: naver_search_pipeline.creating_table manual__2023-09-02T04:49:16.318807+00:00 [queued]>
+[2023-09-02T13:49:19.270+0900] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: naver_search_pipeline.creating_table manual__2023-09-02T04:49:16.318807+00:00 [queued]>
+[2023-09-02T13:49:19.270+0900] {taskinstance.py:1361} INFO - Starting attempt 1 of 1
+[2023-09-02T13:49:19.314+0900] {taskinstance.py:1382} INFO - Executing <Task(SqliteOperator): creating_table> on 2023-09-02 04:49:16.318807+00:00
+[2023-09-02T13:49:19.318+0900] {standard_task_runner.py:57} INFO - Started process 92635 to run task
+[2023-09-02T13:49:19.322+0900] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'naver_search_pipeline', 'creating_table', 'manual__2023-09-02T04:49:16.318807+00:00', '--job-id', '19', '--raw', '--subdir', 'DAGS_FOLDER/naver_search_pipeline.py', '--cfg-path', '/tmp/tmp0a1x9ay1']
+[2023-09-02T13:49:19.322+0900] {standard_task_runner.py:85} INFO - Job 19: Subtask creating_table
+[2023-09-02T13:49:19.343+0900] {task_command.py:415} INFO - Running <TaskInstance: naver_search_pipeline.creating_table manual__2023-09-02T04:49:16.318807+00:00 [running]> on host e2ca8eff8ec8
+[2023-09-02T13:49:19.368+0900] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='naver_search_pipeline' AIRFLOW_CTX_TASK_ID='creating_table' AIRFLOW_CTX_EXECUTION_DATE='2023-09-02T04:49:16.318807+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-09-02T04:49:16.318807+00:00'
+[2023-09-02T13:49:19.369+0900] {sql.py:274} INFO - Executing: 
+            CREATE TABLE IF NOT EXISTS naver_search_result(
+                title TEXT,
+                address TEXT,
+                category TEXT,
+                description TEXT,
+                link TEXT,
+            )
+        
+[2023-09-02T13:49:19.370+0900] {base.py:73} INFO - Using connection ID 'db_sqlite' for task execution.
+[2023-09-02T13:49:19.402+0900] {base.py:73} INFO - Using connection ID 'db_sqlite' for task execution.
+[2023-09-02T13:49:19.402+0900] {sql.py:418} INFO - Running statement: 
+            CREATE TABLE IF NOT EXISTS naver_search_result(
+                title TEXT,
+                address TEXT,
+                category TEXT,
+                description TEXT,
+                link TEXT,
+            )
+        , parameters: None
+[2023-09-02T13:49:19.402+0900] {taskinstance.py:1943} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/airflow/providers/common/sql/operators/sql.py", line 280, in execute
+    output = hook.run(
+  File "/usr/local/lib/python3.8/dist-packages/airflow/providers/common/sql/hooks/sql.py", line 392, in run
+    self._run_command(cur, sql_statement, parameters)
+  File "/usr/local/lib/python3.8/dist-packages/airflow/providers/common/sql/hooks/sql.py", line 423, in _run_command
+    cur.execute(sql_statement)
+sqlite3.OperationalError: near ")": syntax error
+[2023-09-02T13:49:19.404+0900] {taskinstance.py:1400} INFO - Marking task as FAILED. dag_id=naver_search_pipeline, task_id=creating_table, execution_date=20230902T044916, start_date=20230902T044919, end_date=20230902T044919
+[2023-09-02T13:49:19.409+0900] {standard_task_runner.py:104} ERROR - Failed to execute job 19 for task creating_table (near ")": syntax error; 92635)
+[2023-09-02T13:49:19.414+0900] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2023-09-02T13:49:19.420+0900] {taskinstance.py:2784} INFO - 0 downstream tasks scheduled from follow-on schedule check
