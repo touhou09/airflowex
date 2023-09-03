@@ -1,0 +1,32 @@
+[2023-09-02T15:39:01.511+0900] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: naver-search-pipeline.preprocess_result manual__2023-09-02T06:38:52.926321+00:00 [queued]>
+[2023-09-02T15:39:01.514+0900] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: naver-search-pipeline.preprocess_result manual__2023-09-02T06:38:52.926321+00:00 [queued]>
+[2023-09-02T15:39:01.514+0900] {taskinstance.py:1361} INFO - Starting attempt 1 of 1
+[2023-09-02T15:39:01.520+0900] {taskinstance.py:1382} INFO - Executing <Task(PythonOperator): preprocess_result> on 2023-09-02 06:38:52.926321+00:00
+[2023-09-02T15:39:01.523+0900] {standard_task_runner.py:57} INFO - Started process 49754 to run task
+[2023-09-02T15:39:01.526+0900] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'naver-search-pipeline', 'preprocess_result', 'manual__2023-09-02T06:38:52.926321+00:00', '--job-id', '27', '--raw', '--subdir', 'DAGS_FOLDER/naver_search_pipeline.py', '--cfg-path', '/tmp/tmpmmmpi300']
+[2023-09-02T15:39:01.527+0900] {standard_task_runner.py:85} INFO - Job 27: Subtask preprocess_result
+[2023-09-02T15:39:01.546+0900] {task_command.py:415} INFO - Running <TaskInstance: naver-search-pipeline.preprocess_result manual__2023-09-02T06:38:52.926321+00:00 [running]> on host e2ca8eff8ec8
+[2023-09-02T15:39:01.571+0900] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='naver-search-pipeline' AIRFLOW_CTX_TASK_ID='preprocess_result' AIRFLOW_CTX_EXECUTION_DATE='2023-09-02T06:38:52.926321+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-09-02T06:38:52.926321+00:00'
+[2023-09-02T15:39:01.580+0900] {taskinstance.py:1943} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/airflow/operators/python.py", line 192, in execute
+    return_value = self.execute_callable()
+  File "/usr/local/lib/python3.8/dist-packages/airflow/operators/python.py", line 209, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/root/airflow/./preprocess/naver_preprocess.py", line 24, in preprocessing
+    processed_items.to_csv("/root/airflow/dags/data/naver_processed_result.csv", index=None, header=False)
+  File "/usr/local/lib/python3.8/dist-packages/pandas/core/generic.py", line 3772, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+  File "/usr/local/lib/python3.8/dist-packages/pandas/io/formats/format.py", line 1186, in to_csv
+    csv_formatter.save()
+  File "/usr/local/lib/python3.8/dist-packages/pandas/io/formats/csvs.py", line 240, in save
+    with get_handle(
+  File "/usr/local/lib/python3.8/dist-packages/pandas/io/common.py", line 737, in get_handle
+    check_parent_directory(str(handle))
+  File "/usr/local/lib/python3.8/dist-packages/pandas/io/common.py", line 600, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: '/root/airflow/dags/data'
+[2023-09-02T15:39:01.585+0900] {taskinstance.py:1400} INFO - Marking task as FAILED. dag_id=naver-search-pipeline, task_id=preprocess_result, execution_date=20230902T063852, start_date=20230902T063901, end_date=20230902T063901
+[2023-09-02T15:39:01.591+0900] {standard_task_runner.py:104} ERROR - Failed to execute job 27 for task preprocess_result (Cannot save file into a non-existent directory: '/root/airflow/dags/data'; 49754)
+[2023-09-02T15:39:01.625+0900] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2023-09-02T15:39:01.633+0900] {taskinstance.py:2784} INFO - 0 downstream tasks scheduled from follow-on schedule check
